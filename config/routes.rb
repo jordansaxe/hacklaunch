@@ -1,7 +1,7 @@
 Hacklaunch::Application.routes.draw do
 
   get '/' => 'signup#view'
-  post '/' => 'signup#confirm'
+  post '/' => 'signup#show_confirm'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
