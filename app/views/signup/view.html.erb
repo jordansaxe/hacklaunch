@@ -1,11 +1,14 @@
 <h1>Sign up to be a part of the beta and to receive updates!</h1>
 
-<% if flash[:notice] %>
-  <div class="alert alert-success"><%= flash[:notice] %></div>
-<% else %>
+<% if not @hide_form %>
   <%=form_tag '/' do %>
     Your Email Address:
     <input type='text' name='email'>
     <input type='submit' /> 
   <% end %>
+<% end %>
+
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+  <% else %>
 <% end %>
