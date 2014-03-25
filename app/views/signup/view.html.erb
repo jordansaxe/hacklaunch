@@ -2,7 +2,8 @@
 
 <% if not @hide_form %>
   <%=form_tag '/' do %>
-    Your Email Address:
+    Sign up here:
+    <input type='text' name='name'>
     <input type='text' name='email'>
     <input type='submit' /> 
   <% end %>
@@ -12,3 +13,10 @@
   <div class="alert alert-success"><%= flash[:notice] %></div>
   <% else %>
 <% end %>
+
+<% if flash[:error] %>
+  <div class="alert alert-danger"><%= flash[:error] %></div>
+  <% else %>
+<% end %>
+
+<p> <%= @sign_up_count %> number of people have signed up </p>
