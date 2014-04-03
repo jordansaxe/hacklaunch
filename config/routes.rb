@@ -1,7 +1,8 @@
 Hacklaunch::Application.routes.draw do
 
-  get '/' => 'signup#view' #new
-  post '/' => 'signup#show_confirm' #create
+  resources :signups
+
+  root 'signups#view'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

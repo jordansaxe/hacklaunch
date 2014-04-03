@@ -1,0 +1,11 @@
+<ul>
+  <% @sign_ups.each do |sign_up| %>
+    <li>
+      <%= sign_up.name %> - <%= image_tag sign_up.image_url %>
+      <ul>
+        <li>
+          <%=link_to('Delete a user', signup_path(sign_up.id), method: :delete) %>
+    </li>
+
+  <% end %>
+</ul>

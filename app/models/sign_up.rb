@@ -6,4 +6,8 @@ class SignUp < ActiveRecord::Base
                     :length => {:minimum => 3, :maximum => 254},
                     :uniqueness => true,
                     :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
+
+  def image_url
+    url = Gravatar.new(email).image_url
+  end
 end
