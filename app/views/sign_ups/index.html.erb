@@ -1,18 +1,7 @@
-<ul>
-  <% @sign_up.each do |sign_up| %>
-    <li>
-      <%= sign_up.name %> - <%= image_tag sign_up.image_url %>
-      <ul>
-        <li>
-          
-    </li>
-
-  <% end %>
-</ul>
-
 <table class='table'>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Name</th>
       <th>Email</th>
       <th>Actions</th>
@@ -21,6 +10,7 @@
   <tbody>
     <% @sign_up.each do |sign_up| %>
       <tr>
+        <td><%= image_tag sign_up.image_url %></td>
         <td><%= sign_up.name %></td>
         <td><%= sign_up.email %></td>
         <td><%=link_to('Edit a user', edit_sign_up_path(sign_up)) %></td>
