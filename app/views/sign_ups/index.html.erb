@@ -1,0 +1,31 @@
+<ul>
+  <% @sign_up.each do |sign_up| %>
+    <li>
+      <%= sign_up.name %> - <%= image_tag sign_up.image_url %>
+      <ul>
+        <li>
+          
+    </li>
+
+  <% end %>
+</ul>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sign_up.each do |sign_up| %>
+      <tr>
+        <td><%= sign_up.name %></td>
+        <td><%= sign_up.email %></td>
+        <td><%=link_to('Edit a user', edit_sign_up_path(sign_up)) %></td>
+        <td><%=link_to('Delete a user', sign_up_path(sign_up.id), method: :delete) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
