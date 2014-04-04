@@ -6,28 +6,18 @@
 
 
 <div class="container">
-    <% if not @hide_form %>
-      <%=form_tag(sign_ups_path, {class: 'form-inline'}) do %>
-      <div class="form-group">
-          <input type='text' name='name' placeholder='Enter Name'>
-      </div>
-      <div class="form-group">
-        <input type='text' name='email' placeholder='Enter Password'>
-      </div>
-        <input type='submit' class="btn btn-default" /> 
-      <% end %>
-    <% end %>
-
-    <% if flash[:notice] %>
-      <div class="alert alert-success"><%= flash[:notice] %></div>
-      <% else %>
-    <% end %>
-
-    <% if flash[:error] %>
-      <div class="alert alert-danger"><%= flash[:error] %></div>
-      <% else %>
-    <% end %>
-
+  <%=form_for @sign_up, class: 'form-inline' do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+    <%= f.submit "Submit", class: 'btn btn-default' %>
+  <% end %>
+  
     <p> <%= @sign_up_count %> number of people have signed up </p>
   </div>
 </div>

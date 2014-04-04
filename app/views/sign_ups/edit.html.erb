@@ -1,9 +1,11 @@
-<%=form_tag(@sign_up, {class: 'form', method: :put}) do %>
+<%=form_for @sign_up, class: 'form' do |f| %>
   <div class="form-group">
-      <input type='text' name='name' value="<%= @sign_up.name %>">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
   <div class="form-group">
-    <input type='text' name='email' value="<%= @sign_up.email %>">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
   </div>
-    <input type='submit' class="btn btn-default" /> 
+    <%= f.submit "Submit", class: 'btn btn-default' %>
 <% end %>

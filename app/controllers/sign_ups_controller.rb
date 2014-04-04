@@ -1,10 +1,11 @@
 class SignUpsController < ApplicationController
   def new
     @sign_up_count = SignUp.count
+    @sign_up = SignUp.new
   end
 
   def create
-    SignUp.create(name: params[:name], email: params[:email])
+    SignUp.create(params.require(:sign_up).permit(:name, :email))
     redirect_to sign_ups_path
   end
   
@@ -22,11 +23,11 @@ class SignUpsController < ApplicationController
 
   def update
     @sign_up = SignUp.find(params[:id])
-    @sign_up.update_attributes(name: params[:name], email: params[:email])
+    @sign_up.update(params.require(:sign_up).permit(:name, :email))
     redirect_to sign_ups_path
   end
 
   def show
-    redirect_to sign_ups_path
+    
   end
 end
